@@ -4,20 +4,8 @@ import CustomSelect from "./components/CustomSelect";
 import useApi from "./hooks/useApi";
 import BookTable from "./components/BookTable";
 import postInvoice from "./hooks/postInvoice";
-interface Customer {
-  customerId: number;
-  firstName: string;
-  lastName: string;
-}
-
-interface Book {
-  bookId: number;
-  code: string;
-  title: string;
-  publisher: string;
-  loans: any[];
-  bookAuthors: any[];
-}
+import { Book } from "./types/Book";
+import { Customer } from "./types/Customer";
 
 function App() {
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
@@ -79,10 +67,10 @@ function App() {
       const bookIds = booksList.map((book) => book.bookId);
       await postInvoice(selectedCustomer, bookIds);
       setSuccessMessage("¡Se envió correctamente!");
-      setPostError(null); // Limpiar cualquier mensaje de error anterior
+      setPostError(null);
     } catch (error) {
       setPostError((error as Error).message);
-      setSuccessMessage(null); // Limpiar cualquier mensaje de éxito anterior
+      setSuccessMessage(null);
     }
   };
 
