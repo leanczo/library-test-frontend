@@ -76,14 +76,20 @@ function App() {
     }
 
     try {
-      const bookIds = booksList.map(book => book.bookId);
+      const bookIds = booksList.map((book) => book.bookId);
       await postInvoice(selectedCustomer, bookIds);
-      setSuccessMessage('¡Se envió correctamente!');
+      setSuccessMessage("¡Se envió correctamente!");
       setPostError(null); // Limpiar cualquier mensaje de error anterior
     } catch (error) {
       setPostError((error as Error).message);
       setSuccessMessage(null); // Limpiar cualquier mensaje de éxito anterior
     }
+  };
+
+  const handleRemoveBook = (bookId: number) => {
+    setBooksList((prevBooks) =>
+      prevBooks.filter((book) => book.bookId !== bookId)
+    );
   };
 
   return (
@@ -113,7 +119,7 @@ function App() {
           </button>
         </div>
         <div className="grid-item-table">
-          <BookTable books={booksList} />
+          <BookTable books={booksList} onRemoveBook={handleRemoveBook} />
         </div>
         <div className="grid-item-button">
           {postError && <p className="message-error">{postError}</p>}

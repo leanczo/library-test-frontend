@@ -47,3 +47,4 @@ Una vez concluida la carga, mediante un botón se deberá enviar la información
 ## Solución
 ## Ejercicio 2.2
 
+![Finish](./public/preview-final.png)

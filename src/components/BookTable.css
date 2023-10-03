@@ -1,0 +1,22 @@
+.button-small {
+  background-color: #20232a;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.button-small:hover {
+  background-color: #555b63;
+}
+
+.button-small:active {
+  background-color: #111317;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./BookTable.css";
 
 interface Book {
   bookId: number;
@@ -11,9 +12,10 @@ interface Book {
 
 interface BookTableProps {
   books: Book[] | null;
+  onRemoveBook: (bookId: number) => void;
 }
 
-const BookTable: React.FC<BookTableProps> = ({ books }) => {
+const BookTable: React.FC<BookTableProps> = ({ books, onRemoveBook  }) => {
   function filterBookProperties(book: Book): Partial<Book> {
     const { loans, bookAuthors, ...filteredBook } = book;
     return filteredBook;
@@ -38,6 +40,11 @@ const BookTable: React.FC<BookTableProps> = ({ books }) => {
             {headers.map((header, cellIndex) => (
               <td key={cellIndex}>{book[header as keyof Book]}</td>
             ))}
+            <td>
+              <button className="button-small" onClick={() => onRemoveBook(book.bookId)}>
+                Eliminar
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
