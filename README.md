@@ -40,6 +40,8 @@ Los puntos antes resueltos deberán ser utilizados para la resolución de la pro
 ## 2.2 Frontend
 En base al siguiente modelo de interfaz (tentativa, aplique las mejoras que considere necesarias), se deberá seleccionar un cliente (desde un menú desplegable con la obtención de la información desde el servicio antes creado); y agregar los productos que conformarán parte de la factura (no pueden repetirse los mismos para la factura que se está confeccionando). 
 
+![Alt text](./public/preview-frontend.png)
+
 Una vez concluida la carga, mediante un botón se deberá enviar la información ya validada.
 
 ## Solución
